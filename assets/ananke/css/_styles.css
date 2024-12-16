@@ -27,6 +27,7 @@
   top: 0px;
   display: inline-block;
   width: 300px;
+  z-index: 9999; /* 设置搜索框的z-index较高 */
 }      
 
 #fastSearch input { 
@@ -57,4 +58,63 @@
   #searchResults a:hover, a:focus { outline: 0; background-color: #666; color: #fff; }
   
 
+/* 1. Sticky 目录样式 */
+.toc-container {
+  position: -webkit-sticky;
+  position: sticky;
+  right: 20px;
+  top: 100px; /* 目录顶部与页面顶部的距离，可以根据需要调整 */
+  max-height: 80vh; /* 限制目录的最大高度，确保它不超过视口高度 */
+  overflow-y: auto; /* 使目录可滚动 */
+  padding: 10px;
+  background-color: #f9f9f9; /* 目录背景颜色，可以根据需要调整 */
+  border-radius: 8px; /* 圆角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 给目录加个阴影效果，增强层次感 */
+  width: 350px; /* 目录的宽度 */
+  z-index: 10; /* 确保目录在内容上方 */
+}
 
+/* 2. 目录项样式 */
+.toc-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  padding-left: 20px; /* 根据需要设置左边距 */
+}
+
+.toc-container li {
+  margin-bottom: 10px; /* 增加条目之间的间距 */
+  padding-bottom: 5px; /* 可选的增加内边距，确保条目之间有足够的空间 */
+  line-height: 1.8; /* 设置行高，增加行间距 */
+}
+.toc-container li {
+  margin-bottom: 10px; /* 增加条目之间的间距 */
+  padding-bottom: 5px; /* 可选的增加内边距，确保条目之间有足够的空间 */
+  line-height: 1.8; /* 设置行高，增加行间距 */
+}
+
+
+.toc-container ul li {
+  margin: 8px 0;
+}
+
+.toc-container ul li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* 3. 目录项的悬浮效果 */
+.toc-container li a:hover {
+  background-color: #f0f0f0; /* 鼠标悬浮时改变背景颜色 */
+  color: #000; /* 鼠标悬浮时改变文字颜色 */
+}
+
+/* 4. 响应式样式：对于小屏幕设备，可以隐藏目录或做其他调整 */
+@media (max-width: 768px) {
+  .toc-container {
+    display: none; /* 在小屏幕上隐藏目录，可以根据需要做其他调整 */
+  }
+}
