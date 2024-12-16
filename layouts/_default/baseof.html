@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }}>
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
@@ -27,6 +28,9 @@
 
     {{ partial "site-style.html" . }}
     {{ partial "site-scripts.html" . }}
+    <!-- {{ partial "search-box.html" . }} -->
+    <!-- {{ partial "search-results.html" . }} -->
+
 
     {{ block "favicon" . }}
       {{ partialCached "site-favicon.html" . }}
@@ -54,15 +58,26 @@
       {{ template "_internal/google_analytics.html" . }}
     {{ end }}
 	{{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
+  <!-- 引入自定义的 CSS -->
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">    
   </head>
 
   {{- $environment := hugo.Environment | default "production" -}}
   <body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}} {{ $environment }}">
 
     {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
+    {{ partial "search-btn.html" . }}
     <main class="pb7" role="main">
       {{ block "main" . }}{{ end }}
     </main>
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
   </body>
 </html>
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+<script src="/js/fuse.js"></script> <!-- download and copy over fuse.js file from fusejs.io -->
+<script src="/js/fastsearch.js"></script>

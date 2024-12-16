@@ -1,3 +1,4 @@
+# 参考链接 https://gohugo.io/tools/search/ 中的https://gist.github.com/cmod/5410eae147e4318164258742dd053993 补充搜索功能
 # Ananke, A theme for [Hugo](https://gohugo.io/), a framework for building websites
 
 > [!WARNING]

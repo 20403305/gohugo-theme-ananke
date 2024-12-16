@@ -1,0 +1,47 @@
+
+
+
+#fastSearch { 
+    visibility: hidden; /* 初始时隐藏 */
+    position: fixed;
+    right: 20%;
+    top: 11%;
+    display: inline-block;
+    width: 300px;
+  }      
+  
+  #fastSearch input { 
+    padding: 4px 10px;
+    width: 100%;
+    height: 31px;
+    font-size: 1.6em;
+    color: #f6ebeb;
+    font-weight: bold;
+    background-color: #a19d9d;
+    border-radius: 3px 3px 0px 0px;
+    border: none;
+    outline: none;
+    text-align: left;
+    display: inline-block;
+  }
+
+
+
+
+  #searchResults li { 
+    overflow-y: auto;
+    list-style: none; 
+    margin-left: 0em;
+    background-color: #f4f4f5; 
+    border-bottom: 1px dotted #f70e0e;
+  }
+    #searchResults li .title { font-size: 1.1em; margin-bottom: 10px; display: inline-block;}
+  
+  #searchResults { visibility: inherit; display: inline-block; width: 520px; }
+  #searchResults a { text-decoration: none !important; padding: 10px; display: inline-block; }
+    #searchResults a:hover, a:focus { outline: 0; background-color: #ffffff; color: #010101; }
+    
+
+
+
+  
