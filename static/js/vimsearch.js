@@ -21,6 +21,7 @@ function promptForSearch() {
     searchQuery = prompt("请输入搜索内容:");
     if (searchQuery) {
         highlightMatches();
+        showSearchInfo(); // 显示搜索框
     }
 }
 
@@ -45,6 +46,8 @@ function highlightMatches() {
             matches.push(span);
         }
     });
+    // 更新搜索框的匹配信息
+    updateSearchInfo();
 
     // 如果有匹配项，跳转到第一个
     if (matches.length > 0) {
@@ -92,6 +95,8 @@ function highlightCurrentMatch() {
             match.style.backgroundColor = ''; // 移除其他项的高亮
         }
     });
+    // 更新搜索框的匹配信息
+    updateSearchInfo();
 }
 
 // 清除所有高亮
@@ -99,7 +104,7 @@ function clearAllHighlights() {
     matches.forEach(match => {
         match.classList.remove('highlight');
         match.style.backgroundColor = ''; // 清除背景颜色
-    });
+        });
     matches = [];
     currentMatchIndex = -1; // 重置匹配项索引
 }
@@ -108,4 +113,25 @@ function clearAllHighlights() {
 function exitSearch() {
     searchQuery = '';
     clearAllHighlights();
+    hideSearchInfo(); // 隐藏搜索框
+}
+
+
+
+// 更新搜索框显示的信息
+function updateSearchInfo() {
+    const searchInfo = document.getElementById('searchInfo');
+    const currentMatchText = (currentMatchIndex + 1); // 当前光标位置是从 1 开始
+    const totalMatches = matches.length;
+    searchInfo.innerHTML = `匹配到 <span>${totalMatches}</span> 个内容，当前光标在第 <span>${currentMatchText}</span> 个位置`;
+}
+
+// 显示搜索框
+function showSearchInfo() {
+    document.getElementById('searchInfo').style.display = 'block';
+}
+
+// 隐藏搜索框
+function hideSearchInfo() {
+    document.getElementById('searchInfo').style.display = 'none';
 }
