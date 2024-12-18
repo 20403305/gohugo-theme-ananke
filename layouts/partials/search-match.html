@@ -2,23 +2,31 @@
     .highlight {
         background-color: yellow;
     }
-    /* 让信息框固定在页面顶部 */
+
+    /* 优化搜索信息框样式 */
     #searchInfo {
         position: fixed;
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 8px 16px;
-        border-radius: 4px;
-        font-size: 14px;
-        z-index: 1000; /* 确保框在其他内容之上 */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        display: none; /* 默认隐藏 */
+        background-color: #e8eef5;  /* 与按钮背景色一致 */
+        color: #0357b1;  /* 与按钮文字颜色一致 */
+        padding: 6px 16px;  /* 减小内边距 */
+        border-radius: 20px;  /* 圆润的边角 */
+        font-size: 13px;  /* 稍微调小字体 */
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 与按钮阴影一致 */
+        display: none;
+        border: 1px solid #d0d7de;  /* 与按钮边框一致 */
+        transition: all 0.2s ease;  /* 添加过渡效果 */
+        line-height: 1.4;  /* 优化行高 */
+        white-space: nowrap;  /* 防止文字换行 */
     }
+
     #searchInfo span {
-        font-weight: bold;
+        font-weight: 600;  /* 稍微调整粗细 */
+        color: #0357b1;  /* 强调色 */
+        margin: 0 2px;  /* 添加一点间距 */
     }
 
     /* 搜索按钮的通用样式 */
@@ -29,17 +37,23 @@
         z-index: 999;
         background-color: #e8eef5;
         border: 1px solid #d0d7de;
-        border-radius: 20px 0 0 20px;  /* 左侧更圆润 */
-        padding: 6px 12px;  /* 减小内边距使按钮更紧凑 */
+        border-radius: 20px 0 0 20px;
+        padding: 6px 12px;
         cursor: pointer;
-        font-size: 14px;  /* 减小字体大小 */
-        transition: all 0.2s ease;  /* 添加过渡效果 */
+        font-size: 14px;
+        transition: all 0.2s ease;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        user-select: none;  /* 防止文字被选中 */
+        outline: none;  /* 移除点击时的轮廓 */
     }
 
     .search-btn:hover {
         background-color: #d7dde1;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .search-btn:active {
+        transform: translateX(-1px);  /* 点击时的微小位移效果 */
     }
 
     #search-match-btn {
@@ -49,8 +63,8 @@
     #search-match-up,
     #search-match-down {
         display: none;
-        font-size: 12px;  /* 上下箭头按钮字体更小 */
-        padding: 4px 12px;  /* 上下箭头按钮更小的内边距 */
+        font-size: 12px;
+        padding: 4px 12px;
     }
     
     #search-match-up {
@@ -65,7 +79,7 @@
     #search-match-up span,
     #search-match-down span {
         display: inline-block;
-        transform: scale(1.2);  /* 稍微放大emoji */
+        transform: scale(1.2);
     }
 </style>
 <!-- 显示搜索信息的框 -->
