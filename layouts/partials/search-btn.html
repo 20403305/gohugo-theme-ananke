@@ -6,11 +6,25 @@
         right: 0;
         top: 90%;
         z-index: 999;
-        background-color: #d7dde1;
-        border: 1px solid #f8f9fa;
-        border-radius: 0 0 0 5px;
-        padding: 10px 20px;
+        background-color: #e8eef5;
+        border: 1px solid #d0d7de;
+        border-radius: 20px 0 0 20px;
+        padding: 6px 12px;
         cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        user-select: none;  /* 防止文字被选中 */
+        outline: none;  /* 移除点击时的轮廓 */
+    }
+
+    #search-btn:hover {
+        background-color: #d7dde1;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    #search-btn:active {
+        transform: translateX(-1px);  /* 点击时的微小位移效果 */
     }
 </style>
 <button id="search-btn">搜索</button>

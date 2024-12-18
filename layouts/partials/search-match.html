@@ -21,52 +21,57 @@
         font-weight: bold;
     }
 
-    #search-match-btn {
+    /* 搜索按钮的通用样式 */
+    .search-btn {
         color: #0357b1;
         position: fixed;
         right: 0;
-        top: 85%;
         z-index: 999;
-        background-color: #d7dde1;
-        border: 1px solid #f8f9fa;
-        border-radius: 0 0 0 5px;
-        padding: 10px 20px;
+        background-color: #e8eef5;
+        border: 1px solid #d0d7de;
+        border-radius: 20px 0 0 20px;  /* 左侧更圆润 */
+        padding: 6px 12px;  /* 减小内边距使按钮更紧凑 */
         cursor: pointer;
+        font-size: 14px;  /* 减小字体大小 */
+        transition: all 0.2s ease;  /* 添加过渡效果 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-btn:hover {
+        background-color: #d7dde1;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    #search-match-btn {
+        top: 85%;
+    }
+    
+    #search-match-up,
+    #search-match-down {
+        display: none;
+        font-size: 12px;  /* 上下箭头按钮字体更小 */
+        padding: 4px 12px;  /* 上下箭头按钮更小的内边距 */
     }
     
     #search-match-up {
-        color: #0357b1;
-        position: fixed;
-        right: 0;
         top: 72%;
-        z-index: 999;
-        background-color: #d7dde1;
-        border: 1px solid #f8f9fa;
-        border-radius: 0 0 0 5px;
-        padding: 10px 20px;
-        cursor: pointer;
     }
     
-
     #search-match-down {
-        color: #0357b1;
-        position: fixed;
-        right: 0;
         top: 78%;
-        z-index: 999;
-        background-color: #d7dde1;
-        border: 1px solid #f8f9fa;
-        border-radius: 0 0 0 5px;
-        padding: 10px 20px;
-        cursor: pointer;
     }
-    
 
-
+    /* 优化emoji箭头的显示 */
+    #search-match-up span,
+    #search-match-down span {
+        display: inline-block;
+        transform: scale(1.2);  /* 稍微放大emoji */
+    }
 </style>
 <!-- 显示搜索信息的框 -->
 <div id="searchInfo">匹配到 <span>0</span> 个内容，当前光标在第 <span>0</span> 个位置</div>
 
-<button id="search-match-btn">匹配</button>
-<button id="search-match-up">👆</button>
-<button id="search-match-down">👇</button>
+<!-- 添加通用类名 search-btn -->
+<button id="search-match-btn" class="search-btn">匹配</button>
+<button id="search-match-up" class="search-btn"><span>👆</span></button>
+<button id="search-match-down" class="search-btn"><span>👇</span></button>
