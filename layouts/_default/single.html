@@ -49,7 +49,10 @@
     </header>
     <!-- 显示搜索信息的框 -->
     <div id="searchInfo">匹配到 <span>0</span> 个内容，当前光标在第 <span>0</span> 个位置</div>
-
+    <!-- 统计当前页面访问数量 -->
+    {{ if .Site.Params.busuanzi.enable -}}
+    {{ partial "site-counter-page.html" . }}
+    {{- end }}
     <div class="flex-l justify-between w-100">
       <!-- 左侧正文内容区域 -->
       <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
