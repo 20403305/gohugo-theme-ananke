@@ -1,4 +1,6 @@
 {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
+  <!-- 存在site-footer.html和page-header.html能读取到参数，但是site-header.html无法读取到参数 -->
+  <!-- <p>Featured image found: {{ $featured_image }}</p> -->
 {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
   {{ $featured_image_class := site.Params.featured_image_class | default "cover bg-top" }}
